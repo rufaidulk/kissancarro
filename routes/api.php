@@ -16,6 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//=============== User routes ==================//
+Route::post('/register', 'User\RegisterController@register');
+Route::post('/oauth/token', 'User\RegisterController@issueToken');
+
 Route::apiResources([
 
 	'products' => 'API\ProductController',
