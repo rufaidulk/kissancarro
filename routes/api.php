@@ -18,7 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 //=============== User routes ==================//
 Route::post('/register', 'User\RegisterController@register');
-Route::post('/oauth/token', 'User\RegisterController@issueToken');
+Route::post('/verify', 'User\RegisterController@verify');
+Route::post('/login', 'User\LoginController@login');
 
 Route::apiResources([
 

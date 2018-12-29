@@ -36,6 +36,7 @@ class RegisterController extends Controller
     protected $redirectTo = '/home';
     private $client;
     private $client_id;
+    private $OTP;
     /**
      * Create a new controller instance.
      *
@@ -57,6 +58,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
@@ -72,6 +74,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -86,12 +89,51 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
-
+        $this->guard()->login($user);
+        if (auth()->user()) {
+           auth()->user()->sendOTP($request, $user->id);
+        }
         return response([
-            'success' => 'User registered successfully!'
+            'success' => 'User OTP sent successfully!',
+            'user_id' => $user->id,
         ], Response::HTTP_CREATED);
     }
+    
+    public function verify(Request $request)
+    {
+        $this->OTP = DB::table('o_t_ps')->where('user_id', $request->user_id)->first();
+        if ($this->OTP->otp == $request->otp) {
+            $user = User::where('id', $request->user_id)->firstOrFail();
+            $user->isVerified = true;
+            $user->save();
 
+            $this->client_id = $request->client_id;
+            $this->client = DB::table('oauth_clients')->where('id', $this->client_id)->first();
+            if ($this->client) {
+                $request->request->add([
+                    'grant_type' => $request->grant_type,
+                    'client_id' => $request->client_id,
+                    'client_secret' => $this->client->secret,
+                    'username' => $user->email,
+                    'password' => $this->OTP->key,
+                    'scope' => $request->scope,
+                ]);
+                $proxy = Request::create(
+                    'oauth/token',
+                    'POST'
+                );
+                $result = Route::dispatch($proxy);
+                if ($result) {
+                    DB::table('o_t_ps')
+                            ->where('user_id', $this->OTP->user_id)
+                            ->update(['otp' => 'null', 'key' => 'null']);
+                    return $result;
+                }
+            }
+            return "Wrong Credentials";
+        }
+    }
+    /*
     public function issueToken(Request $request)      
     {
         $this->client_id = $request->client_id;
@@ -112,5 +154,5 @@ class RegisterController extends Controller
             return Route::dispatch($proxy);
         }
         return "Wrong Credentials";
-    }
+    }*/
 }
