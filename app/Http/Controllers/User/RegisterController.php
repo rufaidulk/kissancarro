@@ -91,7 +91,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
         $this->guard()->login($user);
         if (auth()->user()) {
-           auth()->user()->sendOTP($request, $user->id);
+           auth()->user()->sendOTP($user->id, $request->password, "registration");
         }
         return response([
             'success' => 'User OTP sent successfully!',
@@ -126,7 +126,7 @@ class RegisterController extends Controller
                 if ($result) {
                     DB::table('o_t_ps')
                             ->where('user_id', $this->OTP->user_id)
-                            ->update(['otp' => 'null', 'key' => 'null']);
+                            ->delete();
                     return $result;
                 }
             }

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\OTPNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -76,9 +77,14 @@ class User extends Authenticatable
         return $OTP;
     }
 
-    public function sendOTP($request, $id)
+    public function sendOTP($id, $key, $purpose)
     {
-        Mail::to($request->email)->send(new RegistrationOTPMail($this->getOTP($id, $request->password)));
+        //Mail::to($request->email)->send(new RegistrationOTPMail($this->getOTP($id, $request->password)));
+        $this->notify(new OTPNotification($this->getOTP($id, $key), $purpose));
     }
 
+    public function routeNotificationForKarix()
+    {
+        return $this->phone;
+    }
 }

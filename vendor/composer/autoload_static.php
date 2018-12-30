@@ -13,8 +13,8 @@ class ComposerStaticInitbaec07467f3a71b006f166e7a8e0f7ba
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'cf97c57bfe0f23854afd2f3818abb7a0' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/create_uploaded_file.php',
         '9bf37a3d0dad93e29cb4e1b1bfab04e9' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/marshal_headers_from_sapi.php',
         'ce70dccb4bcc2efc6e94d2ee526e6972' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/marshal_method_from_sapi.php',
@@ -75,6 +75,7 @@ class ComposerStaticInitbaec07467f3a71b006f166e7a8e0f7ba
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
+            'Swagger\\Client\\' => 15,
         ),
         'R' => 
         array (
@@ -157,6 +158,7 @@ class ComposerStaticInitbaec07467f3a71b006f166e7a8e0f7ba
         ),
         'B' => 
         array (
+            'Bitfumes\\KarixNotificationChannel\\' => 34,
             'BeyondCode\\DumpServer\\' => 22,
         ),
         'A' => 
@@ -263,6 +265,10 @@ class ComposerStaticInitbaec07467f3a71b006f166e7a8e0f7ba
         'Symfony\\Bridge\\PsrHttpMessage\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/psr-http-message-bridge',
+        ),
+        'Swagger\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/karixtech/karix-php/lib',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -413,6 +419,10 @@ class ComposerStaticInitbaec07467f3a71b006f166e7a8e0f7ba
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Bitfumes\\KarixNotificationChannel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bitfumes/karix-notification-channel/src',
+        ),
         'BeyondCode\\DumpServer\\' => 
         array (
             0 => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src',
@@ -478,7 +488,6 @@ class ComposerStaticInitbaec07467f3a71b006f166e7a8e0f7ba
         'App\\Http\\Controllers\\User\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/RegisterController.php',
         'App\\Http\\Controllers\\User\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/ResetPasswordController.php',
         'App\\Http\\Controllers\\User\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/VerificationController.php',
-        'App\\Http\\Controllers\\VerifyOTPController' => __DIR__ . '/../..' . '/app/Http/Controllers/VerifyOTPController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -499,6 +508,7 @@ class ComposerStaticInitbaec07467f3a71b006f166e7a8e0f7ba
         'App\\Model\\Product' => __DIR__ . '/../..' . '/app/Model/Product.php',
         'App\\Model\\Profile' => __DIR__ . '/../..' . '/app/Model/Profile.php',
         'App\\Model\\Review' => __DIR__ . '/../..' . '/app/Model/Review.php',
+        'App\\Notifications\\RegistrationOTPNotification' => __DIR__ . '/../..' . '/app/Notifications/RegistrationOTPNotification.php',
         'App\\OTP' => __DIR__ . '/../..' . '/app/OTP.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -510,6 +520,8 @@ class ComposerStaticInitbaec07467f3a71b006f166e7a8e0f7ba
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
         'BeyondCode\\DumpServer\\RequestContextProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/RequestContextProvider.php',
+        'Bitfumes\\KarixNotificationChannel\\KarixChannel' => __DIR__ . '/..' . '/bitfumes/karix-notification-channel/src/KarixChannel.php',
+        'Bitfumes\\KarixNotificationChannel\\KarixMessage' => __DIR__ . '/..' . '/bitfumes/karix-notification-channel/src/KarixMessage.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\CarbonPeriod' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonPeriod.php',
@@ -3620,6 +3632,55 @@ class ComposerStaticInitbaec07467f3a71b006f166e7a8e0f7ba
         'SebastianBergmann\\Timer\\RuntimeException' => __DIR__ . '/..' . '/phpunit/php-timer/src/RuntimeException.php',
         'SebastianBergmann\\Timer\\Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Swagger\\Client\\ApiException' => __DIR__ . '/..' . '/karixtech/karix-php/lib/ApiException.php',
+        'Swagger\\Client\\Api\\AccountsApi' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Api/AccountsApi.php',
+        'Swagger\\Client\\Api\\MessageApi' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Api/MessageApi.php',
+        'Swagger\\Client\\Api\\NumberApi' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Api/NumberApi.php',
+        'Swagger\\Client\\Api\\NumberSearchApi' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Api/NumberSearchApi.php',
+        'Swagger\\Client\\Api\\WebhookApi' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Api/WebhookApi.php',
+        'Swagger\\Client\\Configuration' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Configuration.php',
+        'Swagger\\Client\\HeaderSelector' => __DIR__ . '/..' . '/karixtech/karix-php/lib/HeaderSelector.php',
+        'Swagger\\Client\\Model\\Account' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/Account.php',
+        'Swagger\\Client\\Model\\AccountNumber' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/AccountNumber.php',
+        'Swagger\\Client\\Model\\ArrayMetaResponse' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/ArrayMetaResponse.php',
+        'Swagger\\Client\\Model\\CreateAccount' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/CreateAccount.php',
+        'Swagger\\Client\\Model\\CreateMessage' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/CreateMessage.php',
+        'Swagger\\Client\\Model\\CreateWebhook' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/CreateWebhook.php',
+        'Swagger\\Client\\Model\\EditAccount' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/EditAccount.php',
+        'Swagger\\Client\\Model\\EditAccountNumber' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/EditAccountNumber.php',
+        'Swagger\\Client\\Model\\EditWebhook' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/EditWebhook.php',
+        'Swagger\\Client\\Model\\InlineResponse200' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse200.php',
+        'Swagger\\Client\\Model\\InlineResponse2001' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse2001.php',
+        'Swagger\\Client\\Model\\InlineResponse2002' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse2002.php',
+        'Swagger\\Client\\Model\\InlineResponse2003' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse2003.php',
+        'Swagger\\Client\\Model\\InlineResponse2004' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse2004.php',
+        'Swagger\\Client\\Model\\InlineResponse2005' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse2005.php',
+        'Swagger\\Client\\Model\\InlineResponse2006' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse2006.php',
+        'Swagger\\Client\\Model\\InlineResponse201' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse201.php',
+        'Swagger\\Client\\Model\\InlineResponse2011' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse2011.php',
+        'Swagger\\Client\\Model\\InlineResponse2012' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse2012.php',
+        'Swagger\\Client\\Model\\InlineResponse202' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse202.php',
+        'Swagger\\Client\\Model\\InlineResponse402' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse402.php',
+        'Swagger\\Client\\Model\\InlineResponse402Error' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse402Error.php',
+        'Swagger\\Client\\Model\\InlineResponse403' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse403.php',
+        'Swagger\\Client\\Model\\InlineResponse403Error' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse403Error.php',
+        'Swagger\\Client\\Model\\InlineResponse404' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse404.php',
+        'Swagger\\Client\\Model\\InlineResponse404Error' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse404Error.php',
+        'Swagger\\Client\\Model\\InlineResponse500' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse500.php',
+        'Swagger\\Client\\Model\\InlineResponse500Error' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/InlineResponse500Error.php',
+        'Swagger\\Client\\Model\\Message' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/Message.php',
+        'Swagger\\Client\\Model\\MessageError' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/MessageError.php',
+        'Swagger\\Client\\Model\\MetaResponse' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/MetaResponse.php',
+        'Swagger\\Client\\Model\\MetaResponseWithBalance' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/MetaResponseWithBalance.php',
+        'Swagger\\Client\\Model\\ModelInterface' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/ModelInterface.php',
+        'Swagger\\Client\\Model\\ObjectMetaResponse' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/ObjectMetaResponse.php',
+        'Swagger\\Client\\Model\\PhoneNumber' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/PhoneNumber.php',
+        'Swagger\\Client\\Model\\PhoneNumberRate' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/PhoneNumberRate.php',
+        'Swagger\\Client\\Model\\PhoneNumberRegion' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/PhoneNumberRegion.php',
+        'Swagger\\Client\\Model\\PhoneNumberService' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/PhoneNumberService.php',
+        'Swagger\\Client\\Model\\RentNumber' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/RentNumber.php',
+        'Swagger\\Client\\Model\\Webhook' => __DIR__ . '/..' . '/karixtech/karix-php/lib/Model/Webhook.php',
+        'Swagger\\Client\\ObjectSerializer' => __DIR__ . '/..' . '/karixtech/karix-php/lib/ObjectSerializer.php',
         'Symfony\\Bridge\\PsrHttpMessage\\Factory\\DiactorosFactory' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Factory/DiactorosFactory.php',
         'Symfony\\Bridge\\PsrHttpMessage\\Factory\\HttpFoundationFactory' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Factory/HttpFoundationFactory.php',
         'Symfony\\Bridge\\PsrHttpMessage\\Factory\\PsrHttpFactory' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Factory/PsrHttpFactory.php',

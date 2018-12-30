@@ -40,4 +40,8 @@ return [
         ],
     ],
 
+    'karix' => [
+        'id' => env('KARIX_ID'),
+        'token' => env('KARIX_TOKEN'),
+    ],
 ];
