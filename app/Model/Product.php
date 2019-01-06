@@ -42,8 +42,8 @@ class Product extends Model
 	|
 	|	can access the products in the cart
 	*/
-	public function carts()
+	public function cart()
 	{
-		return $this->belongsToMany(Cart::class);
+		return $this->belongsTo(Cart::class);
 	}
 }

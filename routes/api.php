@@ -30,10 +30,17 @@ Route::apiResources([
 	'products/{product}/reviews' => 'API\ReviewController',
 	'brands' => 'API\BrandController',
 	'categories' =>'API\CategoryController',
-	
-
+	'guests' => 'API\GuestController',
 ]);
-
+Route::group(['prefix' => 'guest'], function() {
+	Route::apiResource('/{guest}/carts', 'API\CartController');
+});
+Route::group(['prefix' => 'user', 'middleware' => 'auth:api'], function() {
+	Route::apiResource('/{user}/orders', 'API\OrderController');
+});
+Route::group(['prefix' => 'user', 'middleware' => 'auth:api'], function() {
+	Route::apiResource('/{user}/profiles', 'API\ProfileController');
+});
 /*
 Route::apiResource('products', 'API\ProductController');
 Route::group(['prefix' => 'products'], function() {

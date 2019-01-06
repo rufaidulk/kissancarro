@@ -8,7 +8,10 @@ use App\Model\Payment;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
-{
+{   
+    protected $fillable = [
+        'product_id', 'user_id', 'quantity', 'profile_id', 'status'
+    ];
     /*===============================================================================
     |
     |   each order have only one user. i.e every order have a unique user

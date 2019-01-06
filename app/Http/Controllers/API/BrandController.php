@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Model\Brand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Brand\BrandResource;
+use App\Http\Resources\Brand\BrandCollection;
 
 class BrandController extends Controller
 {
@@ -15,17 +17,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return BrandCollection::collection(Brand::all());
     }
 
     /**
@@ -47,18 +39,7 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\Brand  $brand
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Brand $brand)
-    {
-        //
+        return new BrandResource($brand);
     }
 
     /**

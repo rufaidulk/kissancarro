@@ -7,7 +7,10 @@ use App\Model\Order;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
-{
+{   
+    protected $fillable = [
+        'user_id', 'customer_name', 'customer_contact', 'street', 'city', 'district', 'zipcode', 'landmark', 'address_type'
+    ];
     /*===============================================================================
 	|
 	|	each profile is belongs to one user

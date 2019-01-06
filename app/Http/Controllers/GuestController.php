@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
-use App\Model\Category;
+use App\Model\Guest;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\Category\CategoryCollection;
-use App\Http\Resources\Category\CategoryResource;
-class CategoryController extends Controller
+
+class GuestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,17 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return CategoryCollection::collection(Category::all());
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -33,22 +41,33 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\Category  $category
+     * @param  \App\Model\Guest  $guest
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Guest $guest)
     {
-        return new CategoryResource($category);
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Model\Guest  $guest
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Guest $guest)
+    {
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Category  $category
+     * @param  \App\Model\Guest  $guest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Guest $guest)
     {
         //
     }
@@ -56,10 +75,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Category  $category
+     * @param  \App\Model\Guest  $guest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Guest $guest)
     {
         //
     }

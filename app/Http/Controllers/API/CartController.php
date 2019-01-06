@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\Model\Cart;
+use App\Model\Guest;
+use App\Model\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CartRequest;
+use App\Http\Resources\Cart\CartResource;
+use Symfony\Component\HttpFoundation\Response;
 
 class CartController extends Controller
 {
@@ -13,19 +18,9 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Guest $guest)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return CartResource::collection($guest->carts);
     }
 
     /**
@@ -34,9 +29,17 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CartRequest $request)
     {
-        //
+        $cart = new Cart;
+        $cart->guest_id = $request->guest_id;
+        $cart->product_id = $request->product_id;
+        $cart->quantity = $request->quantity;
+        $cart->save();
+        return response([
+            'data' => new CartResource($cart)
+        ], Response::HTTP_CREATED);
+
     }
 
     /**
@@ -45,20 +48,9 @@ class CartController extends Controller
      * @param  \App\Model\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function show(Cart $cart)
+    public function show(Guest $guest, Cart $cart)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cart $cart)
-    {
-        //
+        return new CartResource($cart);
     }
 
     /**
@@ -68,9 +60,12 @@ class CartController extends Controller
      * @param  \App\Model\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cart $cart)
+    public function update(Request $request,Guest $guest, Cart $cart)
     {
-        //
+        $cart->update($request->all());
+        return response([
+            'data' => new CartResource($cart)
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -79,8 +74,9 @@ class CartController extends Controller
      * @param  \App\Model\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy(Guest $guest, Cart $cart)
     {
-        //
+        $cart->delete();
+        return response(Response::HTTP_NO_CONTENT);
     }
 }

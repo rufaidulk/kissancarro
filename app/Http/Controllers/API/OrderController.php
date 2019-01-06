@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers\API;
 
+use App\User;
 use App\Model\Order;
 use Illuminate\Http\Request;
+use App\Http\Requests\OrderRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Order\OrderResource;
+use App\Http\Resources\Order\OrderCollection;
+use Symfony\Component\HttpFoundation\Response;
 
 class OrderController extends Controller
 {
@@ -13,19 +18,9 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return OrderCollection::collection($user->orders);
     }
 
     /**
@@ -34,9 +29,19 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OrderRequest $request, User $user)
     {
-        //
+        $order = new Order;
+        $order->product_id = $request->product_id;
+        $order->user_id = $user->id;
+        $order->quantity = $request->quantity;
+        $order->profile_id = $request->profile_id;
+        $order->status = "ongoing";
+        $order->save();
+
+        return response([
+            'data' => new OrderResource($order)
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -45,20 +50,9 @@ class OrderController extends Controller
      * @param  \App\Model\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(User $user, Order $order)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
+        return new OrderResource($order);
     }
 
     /**
@@ -68,9 +62,13 @@ class OrderController extends Controller
      * @param  \App\Model\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, User $user, Order $order)
     {
-        //
+        $order->update($request->all());
+
+        return response([
+            'data' => new OrderResource($order)
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -79,8 +77,12 @@ class OrderController extends Controller
      * @param  \App\Model\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(User $user, Order $order)
     {
-        //
+        $order->delete();
+
+        return response([
+            "success" => "Deleted successfully"
+        ],Response::HTTP_NO_CONTENT);
     }
 }
