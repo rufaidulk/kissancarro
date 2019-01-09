@@ -91,7 +91,8 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
         $this->guard()->login($user);
         if (auth()->user()) {
-           auth()->user()->sendOTP($user->id, $request->password, "registration");
+            $user->assignRole('customer');
+            auth()->user()->sendOTP($user->id, $request->password, "registration");
         }
         return response([
             'success' => 'User OTP sent successfully!',

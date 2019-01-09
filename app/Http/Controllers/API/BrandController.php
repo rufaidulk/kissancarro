@@ -7,9 +7,22 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Brand\BrandResource;
 use App\Http\Resources\Brand\BrandCollection;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class BrandController extends Controller
-{
+{   
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api')->except('index', 'show');
+        $this->middleware('role:sub-admin')->except('index', 'show');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,8 +40,14 @@ class BrandController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        return "hwllo";
+        //$role = Role::create(['name' => 'customer']);
+        //$permission = Permission::create(['guard_name' => 'api', 'name' => 'index order']);
+        //$role = Role::where('id', '1')->first();
+        //$permission = Permission::where('id', '1')->first();
+        //$role->givePermissionTo($permission);
+        //return $role;
     }
 
     /**
@@ -51,7 +70,7 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        //
+        return "update";
     }
 
     /**
@@ -62,6 +81,6 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        return "destroy";
     }
 }
